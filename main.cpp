@@ -3,7 +3,7 @@
 #include <chrono>
 #include <string>
 #include <vector>
-//#include <ncurses.h>
+#include <ncurses.h>
 #include <time.h>
 #include <sstream>
 #include <iomanip>

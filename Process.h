@@ -54,7 +54,7 @@ int Process::getCpu() const{
 }
 
 int Process::getMem() const{
-    return this->mem;
+    return stoi(this->mem);
 }
 
 string Process::getUpTime() const{
