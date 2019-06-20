@@ -7,7 +7,7 @@ Create a linux-based system monitor (similar to HTOP).
 1. Clone repository into `/home/workspace/`
 ```
 cd /home/workspace/
-git clone https://github.com/udacity/CppND-System-Monitor
+git clone https://github.com/mirkoviviano/CppND-System-Monitor
 ```
 2. Follow along with the lesson and make sure you complete the `ProcessParser` and `Process` classes before attempting to run the project.
 
