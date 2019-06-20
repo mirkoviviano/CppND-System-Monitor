@@ -50,7 +50,7 @@ string Process::getCmd() const{
 }
 
 int Process::getCpu() const{
-    return this->cpu;
+    return stoi(this->cpu);
 }
 
 int Process::getMem() const{
@@ -76,7 +76,7 @@ string Process::getProcess(){
                     + "     "
                     + this->cpu.substr(0,5)
                     + "     "
-                    + this->up_time.substr(0,5)
+                    + this->upTime.substr(0,5)
                     + "    "
                     + this->cmd.substr(0,30)
                     + "...");

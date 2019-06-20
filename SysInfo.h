@@ -14,14 +14,14 @@ class SysInfo {
         float memPercent;
         std::string OSname;
         std::string kernelVer;
-        long upTime;
+        long int upTime;
         int totalProc;
         int runningProc;
         int threads;
     
     public:
         SysInfo(){
-            this->getOtherCores(getNumberOfCores());
+            this->getOtherCores(ProcessParser::getNumberOfCores());
             this->setLastCpuMeasures();
             this->setAttributes();
             this->OSname    = ProcessParser::getOSName();
