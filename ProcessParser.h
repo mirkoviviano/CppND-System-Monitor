@@ -43,8 +43,7 @@ class ProcessParser{
         static bool isPidExisting(std::string pid);
 };
 
-// TODO: Define all of the above functions below:
-std::string ProcessParser::getCmd(std::sstring pid){
+std::string ProcessParser::getCmd(std::string pid){
     std::string line; 
 
     std::ifstream stream = Util::getStream(Path::basePath() + pid + Path::cmdPath());
