@@ -48,28 +48,29 @@ void writeSysInfoToConsole(SysInfo sys, WINDOW* sys_win){
 }
 
 void getProcessListToConsole(std::vector<string> processes,WINDOW* win){
+
     wattron(win,COLOR_PAIR(2));
-    mvwprintw(win,1,2,"PID:");
-    mvwprintw(win,1,9,"User:");
-    mvwprintw(win,1,16,"CPU[%%]:");
-    mvwprintw(win,1,26,"RAM[MB]:");
-    mvwprintw(win,1,35,"Uptime:");
-    mvwprintw(win,1,44,"CMD:");
+    mvwprintw(win,1,2,"PID:"); // Change has been done in the following some lines.
+    mvwprintw(win,1,9,"User:"); //We just changed some values so that we get nice UI
+    mvwprintw(win,1,24,"CPU[%]:"); //For this go through the videos of ncurses library
+    mvwprintw(win,1,38,"RAM [MB]:");
+    mvwprintw(win,1,50,"Uptime:");
+    mvwprintw(win,1,59,"CMD:");
     wattroff(win, COLOR_PAIR(2));
-    for(int i = 0; i < processes.size();i++){
+    for(int i=0; i< processes.size();i++){
         mvwprintw(win,2+i,2,getCString(processes[i]));
    }
 }
 
 void printMain(SysInfo sys,ProcessContainer procs){
-	initscr();			/* Start curses mode 		  */
+    initscr();          /* Start curses mode          */
     noecho(); // not printing input values
     cbreak(); // Terminating on classic ctrl + c
     start_color(); // Enabling color change of text
     int yMax,xMax;
     getmaxyx(stdscr,yMax,xMax); // getting size of window measured in lines and columns(column one char length)
-	WINDOW *sys_win = newwin(17,xMax-1,0,0);
-	WINDOW *proc_win = newwin(15,xMax-1,18,0);
+    WINDOW *sys_win = newwin(17,xMax-1,0,0);
+    WINDOW *proc_win = newwin(15,xMax-1,18,0);
 
 
     init_pair(1,COLOR_BLUE,COLOR_BLACK);
@@ -94,7 +95,7 @@ void printMain(SysInfo sys,ProcessContainer procs){
             counter ++;
         }
     }
-	endwin();
+    endwin();
 }
 
 int main( int   argc, char *argv[] ){
