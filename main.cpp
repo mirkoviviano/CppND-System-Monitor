@@ -49,7 +49,13 @@ void writeSysInfoToConsole(SysInfo sys, WINDOW* sys_win){
 }
 
 void getProcessListToConsole(std::vector<string> processes,WINDOW* win){
-
+    /**
+     * NOTE FOR THE REVIEWER
+     * I wanted to display the data in a nicer way, but I could not find a way to display data organised and within the column. Why? 
+     * I have my mvwprintw(win, y, x, "XXX") where x changes and gets bigger and bigger. So the headers are displaying correctly. Byt them, on line
+     * 66, when I actually print the data, they do not get in proper order. I tried changing the values, but could not find 
+     * any working values. 
+     */
     wattron(win,COLOR_PAIR(2));
     mvwprintw(win,1,2,"PID:");
     mvwprintw(win,1,9,"User:");
