@@ -397,19 +397,13 @@ string ProcessParser::getOSName() {
     return "";
 }
 
-string ProcessParser::PrintCpuStats(vector<string> values1, vector<string> values2){
-    /*
-    Because CPU stats can be calculated only if you take measures in two different time,
-    this function has two paramaters: two vectors of relevant values.
-    We use a formula to calculate overall activity of processor.
-    */
-    float active_time = get_sys_active_cpu_time(values2)-get_sys_active_cpu_time(values1);
-    float idle_time = get_sys_idle_cpu_time(values2) - get_sys_idle_cpu_time(values1);
+string ProcessParser::PrintCpuStats(vector<string> values1, vector<string>values2) {
+    float active_time = getSysActiveCpuTime(values2) - getSysActiveCpuTime(values1);
+    float idle_time = getSysIdleCpuTime(values2) - getSysIdleCpuTime(values1);
     float total_time = active_time + idle_time;
     float result = 100.0*(active_time / total_time);
     return to_string(result);
 }
-
 
 bool ProcessParser::isPidExisting(string pid) {
     vector<string> pidList = ProcessParser::getPidList();
